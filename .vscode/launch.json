@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AutomatizacaoCardsApplication<automatizacao-cards>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.automatizacao.cards.automatizacao_cards.AutomatizacaoCardsApplication",
+      "projectName": "automatizacao-cards",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

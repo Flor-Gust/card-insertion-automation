@@ -1,0 +1,11 @@
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/AutomatizacaoCardsApplication.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/client/AnkiClient.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/config/SwaggerConfig.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/controller/AnkiController.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/model/AnkiRequest.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/model/Fields.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/model/Notes.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/model/Params.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/service/AnkiService.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/service/impl/AnkiServiseImpl.java
+/home/luanflor/ws-java/ws-spring/card-insertion-automation/src/main/java/com/automatizacao/cards/automatizacao_cards/utils/Validations.java
