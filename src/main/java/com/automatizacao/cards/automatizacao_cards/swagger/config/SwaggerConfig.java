@@ -1,4 +1,4 @@
-package com.automatizacao.cards.automatizacao_cards.config;
+package com.automatizacao.cards.automatizacao_cards.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

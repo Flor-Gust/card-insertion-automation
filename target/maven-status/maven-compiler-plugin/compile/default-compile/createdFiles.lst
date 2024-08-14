@@ -5,9 +5,10 @@ com/automatizacao/cards/automatizacao_cards/service/impl/AnkiServiseImpl.class
 com/automatizacao/cards/automatizacao_cards/model/AnkiRequest.class
 com/automatizacao/cards/automatizacao_cards/AutomatizacaoCardsApplication.class
 com/automatizacao/cards/automatizacao_cards/service/AnkiService.class
+com/automatizacao/cards/automatizacao_cards/swagger/config/SwaggerConfig.class
+com/automatizacao/cards/automatizacao_cards/swagger/AnkiControllerDocumentation.class
 com/automatizacao/cards/automatizacao_cards/controller/AnkiController.class
 com/automatizacao/cards/automatizacao_cards/model/Params.class
 com/automatizacao/cards/automatizacao_cards/model/Notes.class
-com/automatizacao/cards/automatizacao_cards/config/SwaggerConfig.class
 com/automatizacao/cards/automatizacao_cards/model/Fields.class
 com/automatizacao/cards/automatizacao_cards/utils/Validations.class
