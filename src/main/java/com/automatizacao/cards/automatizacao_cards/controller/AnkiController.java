@@ -1,6 +1,7 @@
 package com.automatizacao.cards.automatizacao_cards.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,9 +24,9 @@ public class AnkiController implements AnkiControllerDocumentation {
   @Autowired
   private AnkiService ankiService;
 
-  @PostMapping(value = "/import")
+  @PostMapping(value = "/import", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   public ResponseEntity<Void> importNotes(
-      @RequestPart MultipartFile file,
+      @RequestPart(required = true) MultipartFile file,
       @RequestParam String deckName,
       @RequestParam String modelName) {
     try {
