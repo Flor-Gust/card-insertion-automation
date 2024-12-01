@@ -1,4 +1,4 @@
-package com.automatizacao.cards.automatizacao_cards.controller;
+package com.automatizacao.cards.automatizacao_cards.api.controller;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.automatizacao.cards.automatizacao_cards.api.swagger.AnkiControllerDocumentation;
 import com.automatizacao.cards.automatizacao_cards.model.Notes;
 import com.automatizacao.cards.automatizacao_cards.service.AnkiService;
-import com.automatizacao.cards.automatizacao_cards.swagger.AnkiControllerDocumentation;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,13 +32,8 @@ public class AnkiController implements AnkiControllerDocumentation {
       @RequestPart(required = true) MultipartFile file,
       @RequestParam String deckName,
       @RequestParam String modelName) {
-    try {
       List<Notes> notes = ankiService.sendNotesToAnki(file, deckName, modelName);
       return ResponseEntity.ok().body(notes);
-    } catch (Exception ex) {
-      log.error("Error importing notes", ex);
-      return ResponseEntity.status(500).build();
-    }
   }
 
 }
