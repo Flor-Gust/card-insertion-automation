@@ -36,30 +36,36 @@ public class AnkiServiceImpl implements AnkiService {
 
   private final AnkiClient ankiClient;
 
-  @Override
+ @Override
   public List<Notes> sendNotesToAnki(MultipartFile file, String deckName, String modelName) {
     List<Notes> notes = buildNotes(file, deckName, modelName);
 
     AnkiRequest ankiRequest = new AnkiRequest();
     ankiRequest.setAction(ADD_NOTES_ACTION);
     ankiRequest.setVersion(ANKI_VERSION);
-
     ankiRequest.setParams(new Params(notes));
 
     try {
+      // Converte o ankiRequest para JSON
       ObjectMapper mapper = new ObjectMapper();
       String json = mapper.writeValueAsString(ankiRequest);
       log.info("Json send to Anki: {}", json);
+
+      // Envia a requisição ao Anki e captura a resposta
+      ResponseEntity<String> response = ankiClient.addNotes(ankiRequest);
+      log.info("Response to Anki: {}", response.toString());
+
+      // Verifica se houve erro no Anki (exemplo: deck ou modelo não encontrado)
+      String responseBody = Optional.ofNullable(response.getBody()).orElse("");
+      if (responseBody.contains("not found")) {
+        throw new CommonExceptionNotFound("Error Not Found deck or model");
+      }
+
     } catch (JsonProcessingException ex) {
-      throw new CommonExceptionBadRequest("Eror processor JSON --> " + ex.getMessage());
-    }
-
-    ResponseEntity<String> response = ankiClient.addNotes(ankiRequest);
-    Optional<String> body = Optional.of(response.getBody());
-    log.info("Response to Anki: {}", response.toString());
-
-    if(body.isPresent() && body.get().contains("not found")) {
-      throw new CommonExceptionNotFound("Error Not Found deck or model");
+      throw new CommonExceptionBadRequest("Error processing JSON: " + ex.getMessage());
+    } catch (Exception ex) {
+      log.error("Error sending JSON to Anki: {}", ex.getMessage());
+      throw new CommonExceptionBadRequest("Error sending data to Anki: " + ex.getMessage());
     }
 
     return notes;
@@ -79,7 +85,7 @@ public class AnkiServiceImpl implements AnkiService {
               .build())
           .toList();
     } catch (IOException ex) {
-      throw new RuntimeException("Error reading file", ex);
+      throw new CommonExceptionBadRequest("Error reading file" + ex);
     }
   }
 
