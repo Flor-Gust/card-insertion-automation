@@ -12,7 +12,7 @@
 
 	<groupId>com.automatizacao.cards</groupId>
 	<artifactId>automatizacao-cards</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>automatizacao-cards</name>
 	<description>Demo project for Spring Boot</description>
 
